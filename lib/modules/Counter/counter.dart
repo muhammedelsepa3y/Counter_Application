@@ -21,7 +21,7 @@ class _CounterScreenState extends State<CounterScreen> {
         backgroundColor: Color(0xff50c878),
         centerTitle: true,
         title: Text(
-            'Counter Application',
+            'Counter',
           style: TextStyle(fontSize: 25),
         ),
         actions: [
