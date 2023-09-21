@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../modules/Counter/counter.dart';
+import 'HomeScreen.dart';
 
-class HomePagee extends StatefulWidget {
-  const HomePagee({Key? key}) : super(key: key);
-
-  @override
-  State<HomePagee> createState() => _HomePageeState();
-}
-
-class _HomePageeState extends State<HomePagee> {
+class HomePage extends StatelessWidget {
+  static const String id = "HomePage";
+  const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         children: [
@@ -22,45 +18,43 @@ class _HomePageeState extends State<HomePagee> {
               children: [
                 Image.asset(
                   "Assets/ww.png",
-                  height: 150,
-                  width: 150,
+                  height: size.height * 0.4,
+                  width: size.width * 0.4,
                 ),
                 SizedBox(
-                  height: 50,
+                  height: size.height * 0.05,
                 ),
                 Center(
                   child: Text(
                     "Counter",
                     style: TextStyle(
-                      fontSize: 35,
+                      fontSize: size.height * 0.05,
                       fontWeight: FontWeight.w900,
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: size.height * 0.05,
                 ),
               ],
             ),
           ),
           Container(
             width: double.infinity,
-            color: Color(0xff50c878),
+            color:const Color(0xff50c878),
             child: MaterialButton(
-              height: 70,
+              height: size.height * 0.08,
               onPressed: () {
-                setState(() {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => CounterScreen()));
-                });
+                 Navigator.pushNamedAndRemoveUntil(context, CounterScreen.id, (route) => false);
               },
               child: Text(
                 "Start App",
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 20),
+                    fontSize: size.height * 0.03
+                ),
               ),
             ),
           ),
